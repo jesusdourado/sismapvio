@@ -116,8 +116,6 @@ class _MyAppState extends State<MyApp> {
     Response result = await _getOcorrencias();
     var mapped = result.data['data'].values;
 
-    print('o mapped');
-    print(mapped);
     List mapped2 = [];
 
     mapped.forEach((m){
@@ -128,25 +126,12 @@ class _MyAppState extends State<MyApp> {
     markers = [];
     data = [];
 
-    print('inicio do laço');
     for(int i = 0; i < mapped2.length; i ++) {
       var loc = await _getLocationByAddress(mapped2[i].toString());
       coords.add(loc);
       data.add(loc);
-      print('aqui no loc: $loc');
     }
-    /*
-     mapped.forEach((p) async {
-      var loc = _getLocationByAddress(p);
-      coords.add(loc);
-      data.add(loc);
-      print('aqui no loc: $loc');
-    });
 
-     */
-    print('fim do laço');
-
-    print('----- foi aqui');
     print(data);
     print(coords);
 
@@ -173,8 +158,6 @@ class _MyAppState extends State<MyApp> {
     );
 
     setState(() {});
-
-    print('terminou');
   }
 
   Future<LatLng> _getLocationByAddress(String address) async {
