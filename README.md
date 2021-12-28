@@ -9,5 +9,5 @@ Esse projeto é feito utilizando o framework Flutter.
 
 Alguns recursos para iniciar um projeto Flutter:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Online documentation](https://flutter.dev/docs)
+- [Lab: Seu primeiro projeto Flutter](https://flutter.dev/docs/get-started/codelab)
+- [Documentação online](https://flutter.dev/docs)
