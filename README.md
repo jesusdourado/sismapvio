@@ -1,16 +1,13 @@
 # s_p
 
-Sistema de mapeamento da violência em Manaus
+Sistema de mapeamento da violência em Manaus.
+Projeto para a disciplina Sistema Paralelos e Distribuídos.
 
-## Getting Started
+## Flutter
 
-This project is a starting point for a Flutter application.
+Esse projeto é feito utilizando o framework Flutter.
 
-A few resources to get you started if this is your first Flutter project:
+Alguns recursos para iniciar um projeto Flutter:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Lab: Seu primeiro projeto Flutter](https://flutter.dev/docs/get-started/codelab)
+- [Documentação online](https://flutter.dev/docs)
