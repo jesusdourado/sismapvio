@@ -46,11 +46,12 @@ class _LocationScreenState extends State<LocationScreen> {
                 CameraUpdate.newLatLng(ai),
               );
 
-              final address = await placemarkFromCoordinates(ai.latitude, ai.longitude);
-
+              final address =
+                  await placemarkFromCoordinates(ai.latitude, ai.longitude);
 
               setState(() {
-                where = '${address.first.street}, ${address.first.name}, ${address.first.administrativeArea}, ${address.first.country}';
+                where =
+                    '${address.first.street}, ${address.first.name}, ${address.first.administrativeArea}, ${address.first.country}';
                 print(where);
               });
             },
@@ -67,7 +68,11 @@ class _LocationScreenState extends State<LocationScreen> {
               alignment: Alignment.center,
               width: 400.0,
               height: 60,
-              margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+              margin: const EdgeInsets.only(
+                top: 40,
+                left: 20,
+                right: 20,
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
                 border: Border.all(color: Colors.white, width: 2),

@@ -18,6 +18,8 @@ dependencies:
   dio: ^4.0.4
   http: ^0.13.4
   pausable_timer: ^1.0.0+3
+  syncfusion_flutter_datepicker: ^19.4.38
+  bottom_picker: ^1.4.0
 module:
   androidX: true
 

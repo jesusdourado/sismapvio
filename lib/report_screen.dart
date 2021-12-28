@@ -1,8 +1,11 @@
+import 'package:bottom_picker/bottom_picker.dart';
+import 'package:bottom_picker/resources/arrays.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:s_p/utils/http_class.dart';
 import 'package:s_p/widgets/dialog_ocorrencia.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import 'location_screen.dart';
 
@@ -22,8 +25,9 @@ class ReportCrimeScreen extends StatefulWidget {
 
 class _ReportCrimeScreenState extends State<ReportCrimeScreen> {
   late String name = '';
-  late String cpf = '';
+  late String rg = '';
   late SuspectGenre genre = SuspectGenre.m;
+  late String birth = 'Data de nascimento:';
   late String crime = 'Roubo';
   late String where = 'Onde ocorreu?';
   late String when = 'Quando ocorreu?';
@@ -101,7 +105,7 @@ class _ReportCrimeScreenState extends State<ReportCrimeScreen> {
                         child: TextField(
                           style: TextStyle(fontSize: 14.0, color: Colors.white),
                           decoration: InputDecoration(
-                            hintText: 'CPF válido',
+                            hintText: 'RG válido',
                             hintStyle: TextStyle(
                               fontSize: 14.0,
                               color: Colors.white.withOpacity(
@@ -228,6 +232,53 @@ class _ReportCrimeScreenState extends State<ReportCrimeScreen> {
                             child: SizedBox(
                               width: 200,
                               child: Text(
+                                birth,
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () async {
+                                BottomPicker.date(
+                                  title: 'Selecione uma data',
+                                  dateOrder: DatePickerDateOrder.dmy,
+                                  initialDateTime: DateTime.utc(1999),
+                                  pickerTextStyle: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12,
+                                  ),
+                                  titleStyle: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                    color: Colors.blue,
+                                  ),
+                                  onChange: (index) {
+                                    print(index);
+                                  },
+                                  onSubmit: (index) {
+                                    birth = index.toString();
+                                  },
+                                  bottomPickerTheme: BOTTOM_PICKER_THEME.blue,
+                                ).show(context);
+                            },
+                            child: Text('Selecione'),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 10, bottom: 8),
+                            child: SizedBox(
+                              width: 200,
+                              child: Text(
                                 where,
                                 style: TextStyle(
                                   fontSize: 14.0,
@@ -336,7 +387,7 @@ class _ReportCrimeScreenState extends State<ReportCrimeScreen> {
                     onPressed: () async {
                       final result = await _sendOcorrencia({
                         'name': name,
-                        'rg': cpf,
+                        'rg': rg,
                         'sexo': genre == SuspectGenre.m ? 'masculino' : 'feminino',
                         'data': '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
                         'descricao': description,
